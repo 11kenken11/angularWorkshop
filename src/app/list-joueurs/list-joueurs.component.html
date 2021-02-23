@@ -1,0 +1,41 @@
+<div *ngIf="joueurs; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock
+  ><table border="1" align="center" class="table">
+    <tr>
+      <th>Numéro</th>
+      <th>Nom</th>
+      <th>Equipe</th>
+      <th>Photo</th>
+    </tr>
+    <tr *ngFor="let joueur of joueurs">
+      <td>{{ joueur.numero }}</td>
+      <td>{{ joueur.nom }}</td>
+      <td>{{ joueur.equipe }}</td>
+      <td><img [src]="joueur.photo" width="200px" /></td>
+    </tr>
+    <caption>
+      Liste des joueurs
+    </caption>
+  </table></ng-template
+>
+<ng-template #elseBlock><div>Liste vide</div></ng-template>
+
+<div *ngIf="albums; then thenBlock2; else elseBlock2"></div>
+<ng-template #thenBlock2
+  ><table border="1" align="center" class="table">
+    <tr>
+      <th>User Id</th>
+      <th>Id</th>
+      <th>Title</th>
+    </tr>
+    <tr *ngFor="let album of albums">
+      <td>{{ album.userId }}</td>
+      <td>{{ album.id }}</td>
+      <td>{{ album.title }}</td>
+    </tr>
+    <caption>
+      Liste des albums
+    </caption>
+  </table></ng-template
+>
+<ng-template #elseBlock2><div>Liste vide</div></ng-template>
